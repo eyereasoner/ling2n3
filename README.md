@@ -14,5 +14,5 @@ The `ling2n3.sh` is a script to use [Notation3](https://w3c.github.io/N3/spec/) 
 
 ## Authors
 
-- Doerthe Arndt
+- Dörthe Arndt
 - Patrick Hochstenbach
