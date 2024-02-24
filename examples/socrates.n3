@@ -9,4 +9,3 @@ ns1:Human rdfs:subClassOf ns1:Mortal.
 } => {
     ?U_2 a ?U_1.
 }.
-ns1:Socrates a ns1:Mortal.
