@@ -6,6 +6,12 @@
 ./ling2n3.sh examples/socrates.trig
 ```
 
+This will produce:
+
+- `examples/socrates.trig.n3` : the Notation3 version of the Lingua script
+- `examples/socrates.trig.query` : the Notation3 query as expressed in the Lingua script
+- `examples/socrates.trig.sh` : a script to execute the Notation3 and query 
+
 ## Description
 
 [Lingua](https://github.com/eyereasoner/eye/tree/master/lingua) is an experimental language to express reasoning using the [TriG](https://www.w3.org/TR/trig/) syntax.

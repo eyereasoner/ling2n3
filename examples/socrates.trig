@@ -17,3 +17,14 @@ _:pre {
 _:con {
     var:S a var:B .
 }
+
+:query lingua:question _:question ;
+       lingua:answer _:answer .
+
+_:question {
+    var:S a var:O .
+} 
+
+_:answer {
+    var:S a var:O .
+}

@@ -1,0 +1,23 @@
+@prefix ns1: <file:///dev/fd/63#>.
+
+ns1:paris ns1:oneway ns1:orleans.
+ns1:paris ns1:oneway ns1:chartres.
+ns1:paris ns1:oneway ns1:amiens.
+ns1:orleans ns1:oneway ns1:blois.
+ns1:orleans ns1:oneway ns1:bourges.
+ns1:blois ns1:oneway ns1:tours.
+ns1:chartres ns1:oneway ns1:lemans.
+ns1:lemans ns1:oneway ns1:angers.
+ns1:lemans ns1:oneway ns1:tours.
+ns1:angers ns1:oneway ns1:nantes.
+{
+    ?U_0 ns1:oneway ?U_1.
+} => {
+    ?U_0 ns1:path ?U_1.
+}.
+{
+    ?U_2 ns1:path ?U_3.
+    ?U_3 ns1:path ?U_4.
+} => {
+    ?U_2 ns1:path ?U_4.
+}.

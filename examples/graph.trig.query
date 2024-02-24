@@ -1,0 +1,8 @@
+@prefix ns1: <file:///dev/fd/63#>.
+
+{
+    ?t_0 ns1:path ns1:nantes.
+} => {
+    ?t_0 ns1:path ns1:nantes.
+}.
+
