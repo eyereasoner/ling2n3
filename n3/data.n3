@@ -1,0 +1,19 @@
+@prefix lingua: <urn:lingua:> .
+@prefix aux: <http://www.example.org/>.
+@prefix log: <http://www.w3.org/2000/10/swap/log#> .
+@prefix : <http://example.org/ns#> .
+
+{
+    ?S ?P ?O .
+    ?P log:namespace ?Namespace .
+    ?Namespace log:equalTo "urn:lingua:" .
+    { ?S ?P ?O } log:becomes { } .
+}
+=> true .
+
+{
+    ?S ?P ?O .
+    ?P log:equalTo log:closedBy .
+    { ?S ?P ?O } log:becomes { } .
+}
+=> true .

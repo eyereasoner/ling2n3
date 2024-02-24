@@ -1,0 +1,39 @@
+@prefix ns1: <file:///dev/fd/63#>.
+@prefix list: <http://www.w3.org/2000/10/swap/list#>.
+
+() ns1:mi ().
+() ns1:headBody (_:e_e_hb_rule1_head_graph1_1_1 _:sk_0 _:sk_0).
+() ns1:headBody (_:e_e_natnum_hb_rule1_head_graph1_1_1 _:sk_1 _:sk_1).
+{
+    () ns1:mi ().
+} <= true.
+{
+    () ns1:mi ?U_2.
+} <= {
+    ?U_2 list:firstRest (?U_3 ?U_4).
+    () ns1:headBody (?U_3 ?U_5 ?U_4).
+    () ns1:mi ?U_5.
+}.
+{
+    () ns1:headBody (_:e_e_hb_rule1_head_graph1_1_1 ?U_6 ?U_6).
+} <= true.
+{
+    () ns1:headBody (_:e_e_hb_rule2_head_graph1_1_1 ?U_7 ?U_8).
+} <= {
+    ?U_9 list:firstRest (?U_10 ?U_11).
+    ?U_7 list:firstRest (?U_12 ?U_13).
+    ?U_13 list:firstRest (?U_14 ?U_8).
+}.
+{
+    () ns1:headBody (_:e_e_hb_rule3_head_graph1_1_1 ?U_15 ?U_15).
+} <= {
+    () ns1:headBody (?U_16 ?U_17 ?U_18).
+}.
+{
+    () ns1:headBody (_:e_e_natnum_hb_rule1_head_graph1_1_1 ?U_19 ?U_19).
+} <= true.
+{
+    () ns1:headBody (_:e_e_natnum_hb_rule2_head_graph1_1_1 ?U_20 ?U_21).
+} <= {
+    ?U_20 list:firstRest (?U_22 ?U_21).
+}.

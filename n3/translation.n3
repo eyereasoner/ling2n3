@@ -1,0 +1,31 @@
+@prefix lingua: <urn:lingua:> .
+@prefix aux: <http://www.example.org/>.
+@prefix log: <http://www.w3.org/2000/10/swap/log#> .
+@prefix : <http://example.org/ns#> .
+
+{
+   ?x lingua:body ?b ;
+      lingua:head ?h .
+
+   ?x aux:get (lingua:body ?body) .
+   ?x aux:get (lingua:head ?head) .
+}
+=>
+{
+   ?head <= ?body
+} .
+
+{
+   ?x lingua:premise ?b ;
+      lingua:conclusion ?h .
+
+   ?x aux:get (lingua:premise ?premise) .
+   ?x aux:get (lingua:conclusion ?conclusion) .
+}
+=>
+{
+   ?premise => ?conclusion .
+} .
+
+
+
