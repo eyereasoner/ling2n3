@@ -14,3 +14,14 @@
    _:p = ?G .
    _:c = ?H .
 } .
+
+{
+  ?G <urn:log:impliedBy> ?H .
+}
+=>
+{
+   _:myRule lingua:head _:p ;
+         lingua:body _:c .
+   _:p = ?G .
+   _:c = ?H .
+} .
