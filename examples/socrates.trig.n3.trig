@@ -1,0 +1,24 @@
+@prefix lingua: <http://www.w3.org/2000/10/swap/lingua#>.
+@prefix var: <http://www.w3.org/2000/10/swap/var#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix ns1: <file:///dev/fd/63#>.
+
+_:e_sk_0_1 lingua:premise _:e_sk_1_1.
+_:e_sk_0_1 lingua:conclusion _:e_sk_2_1.
+_:e_sk_1_1 {
+    var:U_0 rdfs:subClassOf var:U_1.
+    var:U_2 a var:U_0.
+}
+_:e_sk_2_1 {
+    var:U_2 a var:U_1.
+}
+_:e_sk_1_2 {
+    var:t_0 a var:t_1.
+}
+_:e_sk_2_2 {
+    var:t_0 a var:t_1.
+}
+ns1:Socrates a ns1:Human.
+ns1:Human rdfs:subClassOf ns1:Mortal.
+_:e_sk_0_2 lingua:question _:e_sk_1_2.
+_:e_sk_0_2 lingua:answer _:e_sk_2_2.

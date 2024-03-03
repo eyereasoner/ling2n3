@@ -17,3 +17,11 @@
     { ?S ?P ?O } log:becomes { } .
 }
 => true .
+
+{
+    ?S ?P ?O .
+    ?P log:namespace ?Namespace .
+    ?Namespace log:equalTo "urn:log:" .
+    { ?S ?P ?O } log:becomes { } .
+}
+=> true .

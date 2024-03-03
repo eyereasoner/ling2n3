@@ -1,0 +1,16 @@
+@prefix lingua: <urn:lingua:> .
+@prefix var: <http://www.w3.org/2000/10/swap/var#>.
+@prefix aux: <http://www.example.org/>.
+@prefix log: <http://www.w3.org/2000/10/swap/log#> .
+@prefix : <http://example.org/ns#> .
+
+{
+  ?G <urn:log:implies> ?H .
+}
+=>
+{
+   _:myRule lingua:premise _:p ;
+         lingua:conclusion _:c .
+   _:p = ?G .
+   _:c = ?H .
+} .
