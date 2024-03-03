@@ -5,12 +5,11 @@
 
 {
     ?S ?P ?O .
+    ?P log:notEqualTo log:closedBy .
     ?P log:namespace ?Namespace .
-    ?Namespace log:equalTo "urn:lingua:" .
-    { ?S ?P ?O } log:becomes { } .
+    ?Namespace log:notEqualTo "urn:lingua:" .
 }
-=> true .
-
+=> 
 {
     ?S ?P ?O .
     ?P log:equalTo log:closedBy .
