@@ -24,11 +24,11 @@ eye --nope --quiet --quantify http://www.w3.org/2000/10/swap/var# --pass-only-ne
 
 echo "> ${FILE}.query" 
 
-cat > ${FILE}.sh <<EOF
-#!/bin/bash
-eye --nope --quiet ${FILE}.n3 --query ${FILE}.query
-EOF
-
-chmod 755 ${FILE}.sh
-
-echo "> ${FILE}.sh"
+#cat > ${FILE}.sh <<EOF
+##!/bin/bash
+#eye --nope --quiet ${FILE}.n3 --query ${FILE}.query
+#EOF
+#
+#chmod 755 ${FILE}.sh
+#
+#echo "> ${FILE}.sh"

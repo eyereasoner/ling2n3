@@ -34,11 +34,11 @@ eye --nope --quiet --pass-merged temp/t1.n3 temp/t2.n3 temp/t3.n3 |\
 
 rm temp/t1.n3 temp/t2.n3 temp/t3.n3
 
-cat > ${FILE}.sh <<EOF
-#!/bin/bash
-eye --nope --quiet ${FILE}.trig
-EOF
-
-chmod 755 ${FILE}.sh
-
-echo "> ${FILE}.sh"
+#cat > ${FILE}.sh <<EOF
+##!/bin/bash
+#eye --nope --quiet ${FILE}.trig
+#EOF
+#
+#chmod 755 ${FILE}.sh
+#
+#echo "> ${FILE}.sh"
