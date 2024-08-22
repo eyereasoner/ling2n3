@@ -21,7 +21,7 @@ This will produce:
 
 ## Description
 
-[Lingua](https://github.com/eyereasoner/see/tree/main/lingua) is an experimental language to express reasoning using the [TriG](https://www.w3.org/TR/trig/) syntax.
+[Lingua](https://github.com/eyereasoner/lingua/tree/main?tab=readme-ov-file#rdf-lingua) is an experimental language to express reasoning using the [TriG](https://www.w3.org/TR/trig/) syntax.
 
 The `ling2n3.sh` is a script to translate Lingua to [Notation3](https://w3c.github.io/N3/spec/). This only works with the [EYE](https://github.com/eyereasoner/eye/tree/master) 9.9.7 or more recent.
 
