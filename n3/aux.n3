@@ -3,6 +3,7 @@
 @prefix log: <http://www.w3.org/2000/10/swap/log#> .
 @prefix var: <http://www.w3.org/2000/10/swap/var#> .
 @prefix aux: <http://www.example.org/>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
 { 
     ?x aux:get (?what ?body) . 
@@ -20,4 +21,95 @@
 { 
     ( {?s ?p ?o} {?x ?what ?bb. ?s ?p ?o ?bb } ?blist) log:collectAllIn _:x .  
     ?blist log:conjunction ?body .  
+} .
+
+{
+    ?x aux:graph ?y .
+}
+<=
+{ 
+    ( {?s ?p ?o} {?s ?p ?o ?x } ?blist) log:collectAllIn _:x .  
+    ?blist list:length ?l .
+    ?l log:notEqualTo 0 .
+    (?blist ()) aux:resolve ?blist_new .
+    ?blist_new log:conjunction ?y .  
+} .
+
+{
+    ?x aux:graph ?x .
+}
+<=
+{ 
+    ( {?s ?p ?o} {?s ?p ?o ?x } ?blist) log:collectAllIn _:x .  
+    ?blist list:length ?l .
+    ?l log:equalTo 0 . 
+} .
+
+{
+    (() ?acc) aux:resolve ?acc
+}
+<= true .
+
+{
+    (?list ?acc) aux:resolve ?result .
+}
+<=
+{ 
+    ?list list:length ?l .
+    ?l log:notEqualTo 0 .
+    ?list list:firstRest ( ?head ?tail ) .
+
+    ?head aux:graph ?new_head .
+
+    ?head log:includes { ?s ?p ?o } .
+
+    ?s aux:graph_maybe_lists ?s_new .
+    ?p aux:graph_maybe_lists ?p_new .
+    ?o aux:graph_maybe_lists ?o_new .
+
+    ( ?acc ( { ?s_new ?p_new ?o_new } )) list:append ?acc_new .
+
+    ( ?tail ?acc_new ) aux:resolve ?result .
+} .
+
+{
+    ?x aux:graph_maybe_lists ?y  .
+}
+<=
+{
+    ?x log:rawType ?t .
+    ?t log:equalTo rdf:List .
+    (?x () ) aux:graph_list ?y .
+} .
+
+{
+    ?x aux:graph_maybe_lists ?y  .
+}
+<=
+{
+    ?x log:rawType ?t .
+    ?t log:notEqualTo rdf:List .
+    ?x aux:graph ?y .
+} .
+
+{
+    (() ?acc) aux:graph_list ?acc .
+}
+<= true .
+
+{
+    (?list ?acc) aux:graph_list ?result .
+}
+<=
+{
+    ?list list:length ?l .
+    ?l log:notEqualTo 0 .
+
+    ?list list:firstRest ( ?head ?tail ) .
+
+    ?head aux:graph ?head_new .
+
+    ( ?acc (?head_new)) list:append ?acc_new .
+
+    ( ?tail ?acc_new) aux:graph_list ?result .
 } .
