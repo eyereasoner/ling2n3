@@ -5,6 +5,30 @@
 @prefix aux: <http://www.example.org/>.
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
+### aux:isEmpty ##############################
+# Subject: a list
+# Object: true when list is empty, false otherwise
+
+{
+    ?list aux:isEmpty true .
+}
+<=
+{
+    ?list list:length ?l .
+    ?l log:equalTo 0 .
+} .
+
+{
+    ?list aux:isEmpty false .
+}
+<=
+{
+    ?list list:length ?l .
+    ?l log:notEqualTo 0 .
+} .
+
+### aux:notEmpty ##############################
+
 ### aux:graph #################################
 # Subject: a node
 # Object: find the graph for this node, or return a copy of the node
@@ -14,8 +38,7 @@
 <=
 { 
     ( {?s ?p ?o} {?s ?p ?o ?x } ?blist) log:collectAllIn ?whatever .  
-    ?blist list:length ?l .
-    ?l log:notEqualTo 0 .
+    ?blist aux:isEmpty false .
     (?blist ()) aux:resolve ?blist_new .
     ?blist_new log:conjunction ?y .  
 } .
@@ -26,8 +49,7 @@
 <=
 { 
     ( {?s ?p ?o} {?s ?p ?o ?x } ?blist) log:collectAllIn ?whatever .  
-    ?blist list:length ?l .
-    ?l log:equalTo 0 . 
+    ?blist aux:isEmpty true . 
 } .
 
 ### aux:graph #################################
@@ -47,8 +69,8 @@
 }
 <=
 { 
-    ?list list:length ?l .
-    ?l log:notEqualTo 0 .
+    ?list aux:isEmpty false .
+
     ?list list:firstRest ( ?head ?tail ) .
 
     ?head aux:graph ?new_head .
@@ -106,8 +128,7 @@
 }
 <=
 {
-    ?list list:length ?l .
-    ?l log:notEqualTo 0 .
+    ?list aux:isEmpty false .
 
     ?list list:firstRest ( ?head ?tail ) .
 
