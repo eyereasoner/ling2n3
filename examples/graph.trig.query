@@ -1,8 +1,7 @@
-@prefix ns1: <file:///dev/fd/63#>.
+@prefix ns2: <file:///Users/patrickhochstenbach/github.com/eyereasoner/ling2n3/examples/graph.trig#>.
 
 {
-    ?t_0 ns1:path ns1:nantes.
-} => {
-    ?t_0 ns1:path ns1:nantes.
+    ?t_0 ns2:path ns2:nantes.
+} =^ {
+    ?t_0 ns2:path ns2:nantes.
 }.
-

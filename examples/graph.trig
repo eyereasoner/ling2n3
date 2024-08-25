@@ -22,10 +22,7 @@
 :angers :oneway :nantes.
 
 # oneway subproperty of path
-:graph_rule1 lingua:premise _:graph_rule1_premise;
-    lingua:conclusion _:graph_rule1_conclusion.
-
-_:graph_rule1_premise log:closedBy <>.
+ _:graph_rule1_premise lingua:forward _:graph_rule1_conclusion.
 
 _:graph_rule1_premise {
     var:A :oneway var:B.
@@ -36,10 +33,7 @@ _:graph_rule1_conclusion {
 }
 
 # path transitive property
-:graph_rule2 lingua:premise _:graph_rule2_premise;
-    lingua:conclusion _:graph_rule2_conclusion.
-
-_:graph_rule2_premise log:closedBy <>.
+_:graph_rule2_premise lingua:forward _:graph_rule2_conclusion.
 
 _:graph_rule2_premise {
     var:A :path var:B.
@@ -51,9 +45,7 @@ _:graph_rule2_conclusion {
  }
 
 # query
-:graph_query lingua:question _:graph_question.
-
-_:graph_question log:closedBy <>.
+_:graph_question lingua:answer _:graph_question .
 
 _:graph_question {
     var:A :path :nantes.

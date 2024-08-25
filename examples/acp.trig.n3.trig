@@ -1,0 +1,56 @@
+@prefix lingua: <http://www.w3.org/2000/10/swap/lingua#>.
+@prefix var: <http://www.w3.org/2000/10/swap/var#>.
+@prefix ns2: <file:///Users/patrickhochstenbach/github.com/eyereasoner/ling2n3/examples/acp.trig#>.
+@prefix log: <http://www.w3.org/2000/10/swap/log#>.
+@prefix list: <http://www.w3.org/2000/10/swap/list#>.
+
+_:e_sk_0_1 lingua:backward _:e_sk_1_1.
+_:e_sk_2_1 lingua:backward _:e_sk_3_1.
+_:e_sk_4_1 lingua:backward _:e_sk_5_1.
+_:e_sk_0_1 {
+    var:U_0 ns2:pass ns2:allOfTest.
+}
+_:e_sk_1_1 {
+    var:U_1 ns2:policy var:U_0.
+    var:U_0 a ns2:Policy.
+    ({
+        var:U_0 ns2:allOf var:U_2.
+    } {
+        var:U_1 ns2:has var:U_2.
+    }) log:forAllIn var:U_3.
+}
+_:e_sk_2_1 {
+    var:U_4 ns2:pass ns2:anyOfTest.
+}
+_:e_sk_3_1 {
+    var:U_5 ns2:policy var:U_4.
+    var:U_4 a ns2:Policy.
+    (var:U_6 {
+        var:U_4 ns2:anyOf var:U_6.
+        var:U_5 ns2:has var:U_6.
+    } var:U_7) log:collectAllIn var:U_8.
+    var:U_7 list:length var:U_9.
+    (var:U_9) log:notEqualTo (0).
+}
+_:e_sk_4_1 {
+    var:U_10 ns2:pass ns2:noneOfTest.
+}
+_:e_sk_5_1 {
+    var:U_11 ns2:policy var:U_10.
+    var:U_10 a ns2:Policy.
+    (var:U_12 {
+        var:U_10 ns2:noneOf var:U_12.
+        var:U_11 ns2:has var:U_12.
+    } var:U_13) log:collectAllIn var:U_14.
+    var:U_13 list:length var:U_15.
+    (var:U_15) log:equalTo (0).
+}
+ns2:test1 ns2:policy ns2:PolicyX.
+ns2:test1 ns2:has ns2:A.
+ns2:test1 ns2:has ns2:B.
+ns2:test1 ns2:has ns2:C.
+ns2:PolicyX a ns2:Policy.
+ns2:PolicyX ns2:allOf ns2:A.
+ns2:PolicyX ns2:allOf ns2:B.
+ns2:PolicyX ns2:anyOf ns2:C.
+ns2:PolicyX ns2:noneOf ns2:D.

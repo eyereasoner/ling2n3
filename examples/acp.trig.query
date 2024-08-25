@@ -1,0 +1,11 @@
+@prefix ns2: <file:///Users/patrickhochstenbach/github.com/eyereasoner/ling2n3/examples/acp.trig#>.
+
+{
+    ?t_0 a ns2:Policy.
+    ?t_0 ns2:pass ns2:allOfTest.
+    ?t_0 ns2:pass ns2:anyOfTest.
+    ?t_0 ns2:pass ns2:noneOfTest.
+} =^ {
+    ns2:test ns2:for ?t_0.
+    ns2:test ns2:is true.
+}.

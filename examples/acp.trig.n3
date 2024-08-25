@@ -1,0 +1,48 @@
+@prefix ns2: <file:///Users/patrickhochstenbach/github.com/eyereasoner/ling2n3/examples/acp.trig#>.
+@prefix log: <http://www.w3.org/2000/10/swap/log#>.
+@prefix list: <http://www.w3.org/2000/10/swap/list#>.
+
+ns2:test1 ns2:policy ns2:PolicyX.
+ns2:test1 ns2:has ns2:A.
+ns2:test1 ns2:has ns2:B.
+ns2:test1 ns2:has ns2:C.
+ns2:PolicyX a ns2:Policy.
+ns2:PolicyX ns2:allOf ns2:A.
+ns2:PolicyX ns2:allOf ns2:B.
+ns2:PolicyX ns2:anyOf ns2:C.
+ns2:PolicyX ns2:noneOf ns2:D.
+{
+    ?U_0 ns2:pass ns2:allOfTest.
+} <= {
+    ?U_1 ns2:policy ?U_0.
+    ?U_0 a ns2:Policy.
+    ({
+        ?U_0 ns2:allOf ?U_2.
+    } {
+        ?U_1 ns2:has ?U_2.
+    }) log:forAllIn ?U_3.
+}.
+{
+    ?U_4 ns2:pass ns2:anyOfTest.
+} <= {
+    ?U_5 ns2:policy ?U_4.
+    ?U_4 a ns2:Policy.
+    (?U_6 {
+        ?U_4 ns2:anyOf ?U_6.
+        ?U_5 ns2:has ?U_6.
+    } ?U_7) log:collectAllIn ?U_8.
+    ?U_7 list:length ?U_9.
+    (?U_9) log:notEqualTo (0).
+}.
+{
+    ?U_10 ns2:pass ns2:noneOfTest.
+} <= {
+    ?U_11 ns2:policy ?U_10.
+    ?U_10 a ns2:Policy.
+    (?U_12 {
+        ?U_10 ns2:noneOf ?U_12.
+        ?U_11 ns2:has ?U_12.
+    } ?U_13) log:collectAllIn ?U_14.
+    ?U_13 list:length ?U_15.
+    (?U_15) log:equalTo (0).
+}.

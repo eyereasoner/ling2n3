@@ -24,16 +24,3 @@
 {
    ?premise => ?conclusion .
 } .
-
-{
-   ?x lingua:answer ?y .
-
-   ?x aux:graph ?premise .
-   ?y aux:graph ?conclusion .
-}
-=>
-{
-   ?premise =^ ?conclusion .
-} .
-
-

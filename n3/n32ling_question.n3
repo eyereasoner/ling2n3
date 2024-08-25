@@ -1,4 +1,4 @@
-@prefix lingua: <urn:lingua:> .
+@prefix lingua: <http://www.w3.org/2000/10/swap/lingua#>.
 @prefix var: <http://www.w3.org/2000/10/swap/var#>.
 @prefix aux: <http://www.example.org/>.
 @prefix log: <http://www.w3.org/2000/10/swap/log#> .
@@ -9,8 +9,7 @@
 }
 =>
 {
-   _:myRule lingua:question _:p ;
-         lingua:answer _:c .
+   _:p lingua:answer _:c .
    _:p = ?G .
    _:c = ?H .
 } .

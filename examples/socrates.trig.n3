@@ -1,5 +1,8 @@
+@prefix ns1: <http://example.org/socrates#>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 
+ns1:Socrates a ns1:Human.
+ns1:Human rdfs:subClassOf ns1:Mortal.
 {
     ?U_0 rdfs:subClassOf ?U_1.
     ?U_2 a ?U_0.

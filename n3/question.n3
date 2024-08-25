@@ -1,28 +1,15 @@
-@prefix lingua: <urn:lingua:> .
+@prefix lingua: <http://www.w3.org/2000/10/swap/lingua#>.
 @prefix aux: <http://www.example.org/>.
 @prefix log: <http://www.w3.org/2000/10/swap/log#> .
 @prefix : <http://example.org/ns#> .
 
 {
-   ?x lingua:question ?b ;
-      lingua:answer ?h .
+   ?x lingua:answer ?y .
 
-   ?x aux:get (lingua:question ?question) .
-   ?x aux:get (lingua:answer ?answer) .
+   ?x aux:graph ?premise .
+   ?y aux:graph ?conclusion .
 }
 =>
 {
-   ?question => ?answer .
-} .
-
-{   
-    ?x lingua:question ?q .
-
-    ?SCOPE log:notIncludes { ?x lingua:answer ?a } .
-
-    ?x aux:get (lingua:question ?question) .
-}
-=>
-{
-    ?question => ?question .
+   ?premise log:query ?conclusion .
 } .

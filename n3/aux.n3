@@ -28,7 +28,7 @@
 }
 <=
 { 
-    ( {?s ?p ?o} {?s ?p ?o ?x } ?blist) log:collectAllIn _:x .  
+    ( {?s ?p ?o} {?s ?p ?o ?x } ?blist) log:collectAllIn ?whatever .  
     ?blist list:length ?l .
     ?l log:notEqualTo 0 .
     (?blist ()) aux:resolve ?blist_new .
@@ -40,7 +40,7 @@
 }
 <=
 { 
-    ( {?s ?p ?o} {?s ?p ?o ?x } ?blist) log:collectAllIn _:x .  
+    ( {?s ?p ?o} {?s ?p ?o ?x } ?blist) log:collectAllIn ?whatever .  
     ?blist list:length ?l .
     ?l log:equalTo 0 . 
 } .
