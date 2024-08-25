@@ -27,6 +27,11 @@ The `ling2n3.sh` is a script to translate Lingua to [Notation3](https://w3c.gith
 
 The `n32ling.sh` is a script to translate Notation3 to Lingua.
 
+## Bugs
+
+- ling2n3.sh only works for trig files that don't require references to deeply nested lists with graph term references (but, a flat list with graph term references, such as required for `log:collectAllIn` should work).
+- n32ling.sh only works for simple N3 files that do not require any graph terms in the premise or conclusion.
+
 ## Authors
 
 - Dörthe Arndt
