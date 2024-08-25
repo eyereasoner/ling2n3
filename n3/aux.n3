@@ -5,24 +5,9 @@
 @prefix aux: <http://www.example.org/>.
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-{ 
-    ?x aux:get (?what ?body) . 
-}
-<=
-{   
-    ?x ?what ?body . 
-    ?body log:rawType log:Formula.  
-} .
-
-{
-    ?x aux:get (?what ?body) . 
-}
-<=
-{ 
-    ( {?s ?p ?o} {?x ?what ?bb. ?s ?p ?o ?bb } ?blist) log:collectAllIn _:x .  
-    ?blist log:conjunction ?body .  
-} .
-
+### aux:graph #################################
+# Subject: a node
+# Object: find the graph for this node, or return a copy of the node
 {
     ?x aux:graph ?y .
 }
@@ -45,6 +30,13 @@
     ?l log:equalTo 0 . 
 } .
 
+### aux:graph #################################
+
+### aux:resolve ###############################
+# Subject: a list of lists
+#   - list of triple graphs
+#   - accumulator list set to () 
+# Object: a list of list where for each entry the blank node are resolved to their graph
 {
     (() ?acc) aux:resolve ?acc
 }
@@ -72,6 +64,11 @@
     ( ?tail ?acc_new ) aux:resolve ?result .
 } .
 
+### aux:resolve ###############################
+
+### aux:graph_maybe_lists #####################
+# Subject: a node
+# Object: find the graph for this node where the node may be a list of blank nodes, or return a copy of the node
 {
     ?x aux:graph_maybe_lists ?y  .
 }
@@ -92,6 +89,13 @@
     ?x aux:graph ?y .
 } .
 
+### aux:graph_maybe_lists #####################
+
+### aux:graph_list ############################
+# Subject: a list of lists
+#   - list of nodes where each could be a blank node refering to a graph
+#   - accumulator list set to ()
+# Object: the list where are blank nodes are resolved to their graph
 {
     (() ?acc) aux:graph_list ?acc .
 }
@@ -113,3 +117,5 @@
 
     ( ?tail ?acc_new) aux:graph_list ?result .
 } .
+
+### aux:graph_list ############################
