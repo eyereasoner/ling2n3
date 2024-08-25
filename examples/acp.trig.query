@@ -5,7 +5,8 @@
     ?t_0 ns2:pass ns2:allOfTest.
     ?t_0 ns2:pass ns2:anyOfTest.
     ?t_0 ns2:pass ns2:noneOfTest.
-} =^ {
+} => {
     ns2:test ns2:for ?t_0.
     ns2:test ns2:is true.
 }.
+

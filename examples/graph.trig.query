@@ -2,6 +2,7 @@
 
 {
     ?t_0 ns2:path ns2:nantes.
-} =^ {
+} => {
     ?t_0 ns2:path ns2:nantes.
 }.
+
