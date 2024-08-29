@@ -1,4 +1,4 @@
-@prefix ns2: <file:///Users/patrickhochstenbach/github.com/eyereasoner/ling2n3/examples/acp.trig#>.
+@prefix ns2: <file:///Users/hochsten/github.com/eyereasoner/ling2n3/temp/t0.n3#>.
 
 {
     ?t_0 a ns2:Policy.

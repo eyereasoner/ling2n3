@@ -1,29 +1,89 @@
-@prefix lingua: <http://www.w3.org/2000/10/swap/lingua#>.
-@prefix var: <http://www.w3.org/2000/10/swap/var#>.
-@prefix ns2: <file:///Users/patrickhochstenbach/github.com/eyereasoner/ling2n3/examples/graph.trig#>.
+# -----------------------------
+# Access control policy example
+# -----------------------------
 
-_:e_sk_0_1 lingua:forward _:e_sk_1_1.
-_:e_sk_2_1 lingua:forward _:e_sk_3_1.
-_:e_sk_0_1 {
-    var:U_0 ns2:oneway var:U_1.
+PREFIX list: <http://www.w3.org/2000/10/swap/list#>
+PREFIX log: <http://www.w3.org/2000/10/swap/log#>
+PREFIX var: <http://www.w3.org/2000/10/swap/var#>
+PREFIX : <#>
+
+:test1 :policy :PolicyX;
+    :has :A, :B, :C.
+
+:PolicyX a :Policy;
+    :allOf :A, :B;
+    :anyOf :C;
+    :noneOf :D.
+
+_:bng_1 log:isImpliedBy _:bng_2.
+
+GRAPH _:bng_1 {
+    var:Pol :pass :allOfTest.
 }
-_:e_sk_1_1 {
-    var:U_0 ns2:path var:U_1.
+
+GRAPH _:bng_2 {
+    var:Test :policy var:Pol.
+    var:Pol a :Policy.
+    (_:bng_3 _:bng_4) log:forAllIn var:X.
 }
-_:e_sk_2_1 {
-    var:U_2 ns2:path var:U_3.
-    var:U_3 ns2:path var:U_4.
+
+GRAPH _:bng_3 {
+    var:Pol :allOf var:Field.
 }
-_:e_sk_3_1 {
-    var:U_2 ns2:path var:U_4.
+
+GRAPH _:bng_4 {
+    var:Test :has var:Field.
 }
-ns2:paris ns2:oneway ns2:orleans.
-ns2:paris ns2:oneway ns2:chartres.
-ns2:paris ns2:oneway ns2:amiens.
-ns2:orleans ns2:oneway ns2:blois.
-ns2:orleans ns2:oneway ns2:bourges.
-ns2:blois ns2:oneway ns2:tours.
-ns2:chartres ns2:oneway ns2:lemans.
-ns2:lemans ns2:oneway ns2:angers.
-ns2:lemans ns2:oneway ns2:tours.
-ns2:angers ns2:oneway ns2:nantes.
+
+_:bng_5 log:isImpliedBy _:bng_6.
+
+GRAPH _:bng_5 {
+    var:Pol :pass :anyOfTest.
+}
+
+GRAPH _:bng_6 {
+    var:Test :policy var:Pol.
+    var:Pol a :Policy.
+    (var:Field _:bng_7 var:List) log:collectAllIn var:X.
+    var:List list:length var:L.
+    (var:L) log:notEqualTo (0).
+}
+
+GRAPH _:bng_7 {
+    var:Pol :anyOf var:Field.
+    var:Test :has var:Field.
+}
+
+_:bng_8 log:isImpliedBy _:bng_9.
+
+GRAPH _:bng_8 {
+    var:Pol :pass :noneOfTest.
+}
+
+GRAPH _:bng_9 {
+    var:Test :policy var:Pol.
+    var:Pol a :Policy.
+    (var:Field _:bng_10 var:List) log:collectAllIn var:X.
+    var:List list:length var:L.
+    (var:L) log:equalTo (0).
+}
+
+GRAPH _:bng_10 {
+    var:Pol :noneOf var:Field.
+    var:Test :has var:Field.
+}
+
+# query
+_:bng_11 log:query _:bng_12.
+
+GRAPH _:bng_11 {
+    var:Pol a :Policy.
+    var:Pol :pass :allOfTest.
+    var:Pol :pass :anyOfTest.
+    var:Pol :pass :noneOfTest.
+}
+
+GRAPH _:bng_12 {
+    :test :for var:Pol.
+    :test :is true.
+}

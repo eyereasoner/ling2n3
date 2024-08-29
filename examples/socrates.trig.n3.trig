@@ -1,9 +1,9 @@
 @prefix lingua: <http://www.w3.org/2000/10/swap/lingua#>.
 @prefix var: <http://www.w3.org/2000/10/swap/var#>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
-@prefix ns1: <http://example.org/socrates#>.
+@prefix ns1: <file:///Users/hochsten/github.com/eyereasoner/ling2n3/temp/t0.n3#>.
 
-_:e_sk_0_1 lingua:forward _:e_sk_1_1.
+_:e_sk_0_1 <http://www.w3.org/2000/10/swap/log#implies> _:e_sk_1_1.
 _:e_sk_0_1 {
     var:U_0 rdfs:subClassOf var:U_1.
     var:U_2 a var:U_0.
@@ -11,5 +11,12 @@ _:e_sk_0_1 {
 _:e_sk_1_1 {
     var:U_2 a var:U_1.
 }
+_:e_sk_0_2 {
+    var:t_0 a ns1:Mortal.
+}
+_:e_sk_1_2 {
+    var:t_0 a ns1:Mortal.
+}
 ns1:Socrates a ns1:Human.
 ns1:Human rdfs:subClassOf ns1:Mortal.
+_:e_sk_0_2 <http://www.w3.org/2000/10/swap/log#query> _:e_sk_1_2.

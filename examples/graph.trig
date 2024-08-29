@@ -4,10 +4,9 @@
 #
 # Examples of graph based reasoning.
 
-@prefix log: <http://www.w3.org/2000/10/swap/log#>.
-@prefix lingua: <http://www.w3.org/2000/10/swap/lingua#>.
-@prefix var: <http://www.w3.org/2000/10/swap/var#>.
-@prefix : <#>.
+PREFIX log: <http://www.w3.org/2000/10/swap/log#>
+PREFIX var: <http://www.w3.org/2000/10/swap/var#>
+PREFIX : <#>
 
 # French roads
 :paris :oneway :orleans.
@@ -22,31 +21,31 @@
 :angers :oneway :nantes.
 
 # oneway subproperty of path
- _:graph_rule1_premise lingua:forward _:graph_rule1_conclusion.
+_:bng_1 log:implies _:bng_2.
 
-_:graph_rule1_premise {
+GRAPH _:bng_1 {
     var:A :oneway var:B.
 }
 
-_:graph_rule1_conclusion {
+GRAPH _:bng_2 {
     var:A :path var:B.
 }
 
 # path transitive property
-_:graph_rule2_premise lingua:forward _:graph_rule2_conclusion.
+_:bng_3 log:implies _:bng_4.
 
-_:graph_rule2_premise {
+GRAPH _:bng_3 {
     var:A :path var:B.
     var:B :path var:C.
 }
 
-_:graph_rule2_conclusion {
+GRAPH _:bng_4 {
     var:A :path var:C.
  }
 
 # query
-_:graph_question lingua:answer _:graph_question .
+_:bng_5 log:query _:bng_5.
 
-_:graph_question {
+GRAPH _:bng_5 {
     var:A :path :nantes.
 }

@@ -29,7 +29,11 @@ echo "> ${FILE}.trig"
 
 eye --nope --quiet --pass-merged temp/t1.n3 temp/t2.n3 temp/t3.n3 |\
         sed -e 's/<http:\/\/www.w3.org\/2002\/07\/owl#sameAs> {/{/' |\
-        sed -e 's/^}\./}/g' > ${FILE}.trig
+        sed -e 's/^}\./}/g' |\
+        sed -e 's/lingua:forward/<http:\/\/www.w3.org\/2000\/10\/swap\/log#implies>/' |\
+        sed -e 's/lingua:backward/<http:\/\/www.w3.org\/2000\/10\/swap\/log#isImpliedBy>/' |\
+        sed -e 's/lingua:answer/<http:\/\/www.w3.org\/2000\/10\/swap\/log#query>/' \
+        > ${FILE}.trig
 
 rm temp/t1.n3 temp/t2.n3 temp/t3.n3
 
