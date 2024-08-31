@@ -1,4 +1,4 @@
-@prefix ns2: <file:///Users/hochsten/github.com/eyereasoner/ling2n3/temp/t0.n3#>.
+@prefix ns2: <file:///Users/patrickhochstenbach/github.com/eyereasoner/ling2n3/temp/t0.n3#>.
 
 ns2:paris ns2:oneway ns2:orleans.
 ns2:paris ns2:oneway ns2:chartres.

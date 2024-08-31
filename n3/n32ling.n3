@@ -6,20 +6,24 @@
 
 {
   ?G <urn:log:implies> ?H .
+  (?G) log:skolem ?P .
+  (?H) log:skolem ?C 
 }
 =>
 {
-   _:p lingua:forward _:c .
-   _:p = ?G .
-   _:c = ?H .
+   ?P lingua:forward ?C .
+   ?P = ?G .
+   ?C = ?H .
 } .
 
 {
   ?G <urn:log:impliedBy> ?H .
+  (?G) log:skolem ?P .
+  (?H) log:skolem ?C 
 }
 =>
 {
-   _:p lingua:backward _:c .
-   _:p = ?G .
-   _:c = ?H .
+   ?P lingua:backward ?C .
+   ?P = ?G .
+   ?C = ?H .
 } .

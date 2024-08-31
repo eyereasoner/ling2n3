@@ -1,4 +1,4 @@
-@prefix ns1: <file:///Users/hochsten/github.com/eyereasoner/ling2n3/temp/t0.n3#>.
+@prefix ns1: <file:///Users/patrickhochstenbach/github.com/eyereasoner/ling2n3/temp/t0.n3#>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 
 ns1:Socrates a ns1:Human.
